@@ -1,9 +1,9 @@
 packaging_format = 2
 
-id = "helloworld"
-name = "Hello World"
-description.en = "A dummy basic app to illustrate YunoHost's app packaging."
-description.fr = "Une app simple et bidon pour illustrer comme le packaging d'app de YunoHost fonctionne"
+id = "forgejo-pages-server"
+name = "Pages Server for Forgejo"
+description.en = "The Codeberg Pages Server – with custom domain support, per-repo pages using the \"pages\" branch, caching and much more! Easy to selfhost too!"
+description.ru = "Сервер страниц для Forgejo - с поддержкой персонализированных доменов, страницы для каждого репозитория с помощью ветки «pages», кеширование и многое другое!"
 
 version = "0.1~ynh2"
 

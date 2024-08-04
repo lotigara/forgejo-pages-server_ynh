@@ -1,1 +1,1 @@
-This app is only meant to be a minimalist app demontrating the v2 packaging format
+It is a YunoHost package for [Codeberg Pages Server](https://codeberg.org/Codeberg/pages-server)

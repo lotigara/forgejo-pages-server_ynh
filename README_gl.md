@@ -3,38 +3,38 @@ NOTA: Este README foi creado automáticamente por <https://github.com/YunoHost/a
 NON debe editarse manualmente.
 -->
 
-# Hello World para YunoHost
+# Pages Server for Forgejo para YunoHost
 
-[![Nivel de integración](https://dash.yunohost.org/integration/helloworld.svg)](https://dash.yunohost.org/appci/app/helloworld) ![Estado de funcionamento](https://ci-apps.yunohost.org/ci/badges/helloworld.status.svg) ![Estado de mantemento](https://ci-apps.yunohost.org/ci/badges/helloworld.maintain.svg)
+[![Nivel de integración](https://dash.yunohost.org/integration/forgejo-pages-server.svg)](https://ci-apps.yunohost.org/ci/apps/forgejo-pages-server/) ![Estado de funcionamento](https://ci-apps.yunohost.org/ci/badges/forgejo-pages-server.status.svg) ![Estado de mantemento](https://ci-apps.yunohost.org/ci/badges/forgejo-pages-server.maintain.svg)
 
-[![Instalar Hello World con YunoHost](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=helloworld)
+[![Instalar Pages Server for Forgejo con YunoHost](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=forgejo-pages-server)
 
 *[Le este README en outros idiomas.](./ALL_README.md)*
 
-> *Este paquete permíteche instalar Hello World de xeito rápido e doado nun servidor YunoHost.*  
+> *Este paquete permíteche instalar Pages Server for Forgejo de xeito rápido e doado nun servidor YunoHost.*  
 > *Se non usas YunoHost, le a [documentación](https://yunohost.org/install) para saber como instalalo.*
 
 ## Vista xeral
 
-This app is only meant to be a minimalist app demontrating the v2 packaging format
+It is a YunoHost package for [Codeberg Pages Server](https://codeberg.org/Codeberg/pages-server)
 
 
 **Versión proporcionada:** 0.1~ynh2
 ## Documentación e recursos
 
-- Tenda YunoHost: <https://apps.yunohost.org/app/helloworld>
-- Informar dun problema: <https://github.com/YunoHost-Apps/helloworld_ynh/issues>
+- Tenda YunoHost: <https://apps.yunohost.org/app/forgejo-pages-server>
+- Informar dun problema: <https://github.com/YunoHost-Apps/forgejo-pages-server_ynh/issues>
 
 ## Info de desenvolvemento
 
-Envía a túa colaboración á [rama `testing`](https://github.com/YunoHost-Apps/helloworld_ynh/tree/testing).
+Envía a túa colaboración á [rama `testing`](https://github.com/YunoHost-Apps/forgejo-pages-server_ynh/tree/testing).
 
 Para probar a rama `testing`, procede deste xeito:
 
 ```bash
-sudo yunohost app install https://github.com/YunoHost-Apps/helloworld_ynh/tree/testing --debug
+sudo yunohost app install https://github.com/YunoHost-Apps/forgejo-pages-server_ynh/tree/testing --debug
 ou
-sudo yunohost app upgrade helloworld -u https://github.com/YunoHost-Apps/helloworld_ynh/tree/testing --debug
+sudo yunohost app upgrade forgejo-pages-server -u https://github.com/YunoHost-Apps/forgejo-pages-server_ynh/tree/testing --debug
 ```
 
 **Máis info sobre o empaquetado da app:** <https://yunohost.org/packaging_apps>
