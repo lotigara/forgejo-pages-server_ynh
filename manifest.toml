@@ -99,14 +99,15 @@ ram.runtime = "50M"
 
     ask.en = "Code of your domain registrar for the main domain wildcard"
     ask.ru = "Код Вашего доменного регистратора для сертификата на домены с подстановочным знаком"
-    help.en = "Empty value – do not use the API of the domain registrar. See https://go-acme.github.io/lego/dns/ for registrar codes."
-    help.ru = "Пустое значение - не использовать API регистратора доменов. Смотрите https://go-acme.github.io/lego/dns/ для кодов регистраторов."
+    help.en = "Empty value – do not use the API of the domain registrar. See https://go-acme.github.io/lego/dns/ for registrar codes. Please use a separate line for each variable!"
+    help.ru = "Пустое значение - не использовать API регистратора доменов. Смотрите https://go-acme.github.io/lego/dns/ для кодов регистраторов. Пожалуйста, используйте для каждой переменной отдельную строку!"
 
     example = "regru"
 
     [install.dns_credentials]
     visible = "dns_provider != ''"
     type = "text"
+    redact = true
 
     ask.en = "Write environment variables with credentials of your account on domain registrar's service" 
     ask.ru = "Напишите переменные среды с учётными данными Вашего аккаунта у доменного регистратора, выбранного выше"
@@ -114,10 +115,6 @@ ram.runtime = "50M"
     help.ru = "Смотрите https://go-acme.github.io/lego/dns/ для доступных переменных среды."
 
     example = "REGRU_USERNAME='test'\nREGRU_PASSWORD='test'"
-
-    [install.init_main_permission]
-    type = "group"
-    default = "visitors"
 
 [resources]
 
@@ -128,6 +125,9 @@ ram.runtime = "50M"
         in_subdir = false
         extract = false
         rename = "pages-server"
+
+	autoupdate.strategy = "latest_forgejo_release"
+	autoupdate.asset.amd64 = "*"
 
     [resources.system_user]
 
