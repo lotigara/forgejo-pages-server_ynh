@@ -56,7 +56,6 @@ ram.runtime = "50M"
     [install.forgejo_url]
     type = "url"
     optional = true
-    redact = true
 
     ask.en = "URL of your Forgejo instance"
     ask.ru = "URL Вашего экземпляра Forgejo"
