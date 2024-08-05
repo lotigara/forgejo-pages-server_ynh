@@ -84,8 +84,7 @@ ram.runtime = "50M"
 
     [install.dns_use]
     type = "boolean"
-    yes = "true"
-    no = "false"
+    readonly = true
 
     ask.en = "Do use your registar's API?"
     ask.ru = "Использовать API Вашего регистратора?"
@@ -95,7 +94,6 @@ ram.runtime = "50M"
     default = "true"
 
     [install.dns_provider]
-    visible = "dns_use = 'true'"
     type = "string"
 
     ask.en = "Code of your domain registrar for the main domain wildcard"
@@ -106,7 +104,6 @@ ram.runtime = "50M"
     example = "regru"
 
     [install.dns_credentials]
-    visible = "dns_use = 'true'"
     type = "text"
     redact = true
 
