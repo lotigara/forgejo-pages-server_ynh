@@ -3,15 +3,15 @@ Nota bene : ce README est automatiquement généré par <https://github.com/Yu
 Il NE doit PAS être modifié à la main.
 -->
 
-# Pages Server for Forgejo pour YunoHost
+# Forgejo Pages Server pour YunoHost
 
 [![Niveau d’intégration](https://dash.yunohost.org/integration/forgejo-pages-server.svg)](https://ci-apps.yunohost.org/ci/apps/forgejo-pages-server/) ![Statut du fonctionnement](https://ci-apps.yunohost.org/ci/badges/forgejo-pages-server.status.svg) ![Statut de maintenance](https://ci-apps.yunohost.org/ci/badges/forgejo-pages-server.maintain.svg)
 
-[![Installer Pages Server for Forgejo avec YunoHost](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=forgejo-pages-server)
+[![Installer Forgejo Pages Server avec YunoHost](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=forgejo-pages-server)
 
 *[Lire le README dans d'autres langues.](./ALL_README.md)*
 
-> *Ce package vous permet d’installer Pages Server for Forgejo rapidement et simplement sur un serveur YunoHost.*  
+> *Ce package vous permet d’installer Forgejo Pages Server rapidement et simplement sur un serveur YunoHost.*  
 > *Si vous n’avez pas YunoHost, consultez [ce guide](https://yunohost.org/install) pour savoir comment l’installer et en profiter.*
 
 ## Vue d’ensemble
@@ -19,9 +19,14 @@ Il NE doit PAS être modifié à la main.
 It is a YunoHost package for [Codeberg Pages Server](https://codeberg.org/Codeberg/pages-server)
 
 
-**Version incluse :** 0.1~ynh2
+**Version incluse :** 5.1~ynh1
+
+**Démo :** <https://codeberg.page>
 ## Documentations et ressources
 
+- Site officiel de l’app : <https://codeberg.page>
+- Documentation officielle utilisateur : <https://docs.codeberg.org/codeberg-pages/>
+- Dépôt de code officiel de l’app : <https://codeberg.org/Codeberg/pages-server>
 - YunoHost Store : <https://apps.yunohost.org/app/forgejo-pages-server>
 - Signaler un bug : <https://github.com/YunoHost-Apps/forgejo-pages-server_ynh/issues>
 

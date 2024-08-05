@@ -1,45 +1,141 @@
 packaging_format = 2
 
 id = "forgejo-pages-server"
-name = "Pages Server for Forgejo"
-description.en = "The Codeberg Pages Server – with custom domain support, per-repo pages using the \"pages\" branch, caching and much more! Easy to selfhost too!"
-description.ru = "Сервер страниц для Forgejo - с поддержкой персонализированных доменов, страницы для каждого репозитория с помощью ветки «pages», кеширование и многое другое!"
+name = "Forgejo Pages Server"
+description.en = "Pages Server for Forgejo by Codeberg – with custom domain support, per-repo pages using the \"pages\" branch, caching and much more!"
+description.ru = "Сервер Страниц для Forgejo от Codeberg - с поддержкой персонализированных доменов, страницы для каждого репозитория с помощью ветки «pages», кеширование и многое другое!"
 
-version = "0.1~ynh2"
+version = "5.1~ynh1"
 
-maintainers = ["alexAubin"]
+maintainers = ["lotigara"]
 
 [upstream]
-license = "WTFPL"
+license = "EUPL-1.2"
+website = "https://codeberg.page"
+demo = "https://codeberg.page"
+code = "https://codeberg.org/Codeberg/pages-server"
+userdoc = "https://docs.codeberg.org/codeberg-pages/"
 
 [integration]
 yunohost = ">= 11.1"
-architectures = "all"
+architectures = "amd64"
 multi_instance = false
 ldap = "not_relevant"
 sso = "not_relevant"
-disk = "1M"
-ram.build = "1M"
-ram.runtime = "1M"
+disk = "50M"
+ram.build = "50M"
+ram.runtime = "50M"
 
 [install]
     [install.domain]
     # this is a generic question - ask strings are automatically handled by Yunohost's core
     type = "domain"
 
-    [install.path]
-    # this is a generic question - ask strings are automatically handled by Yunohost's core
-    type = "path"
-    default = "/helloworld"
+    [install.domain_raw]
+    type = "domain"
+
+    ask.en = "Domain for raw files (e.g. source code of HTML file instead of rendered page)"
+    ask.ru = "Домен для исходных файлов (например, исходный код HTML-файла вместо отрисованной страницы)"
+    help.en = "Recommended value is a subdomain of your Forgejo instance."
+    help.ru = "Рекомендуемое значение - это поддомен Вашего экземпляра Forgejo."
+
+    [install.forgejo_token]
+    type = "string"
+    optional = true
+    redact = true
+
+    ask.en = "API token for the Forgejo instance"
+    ask.ru = "Токен API для экземпляра Forgejo"
+    help.en = "Needed for access to private repositories"
+    help.ru = "Нужен для доступа к личным репозиториям"
+
+    example = "1234567890abcdefghijklmnopqrstuvwxyz1234"
+
+    [install.forgejo_url]
+    type = "url"
+    optional = true
+    redact = true
+
+    ask.en = "URL of your Forgejo instance"
+    ask.ru = "URL Вашего экземпляра Forgejo"
+
+    example = "https://code.example.com"
+
+    [install.acme_use]
+    type = "boolean"
+    yes = "true"
+    no = "false"
+
+    ask.en = "Do use Let's Encrypt?"
+    ask.ru = "Использовать Let's Encrypt?"
+    help.en = "Otherwise, certificate will be self-signed (by the Pages Server, not YunoHost)."
+    help.ru = "Иначе, сертификат будет самоподписанным (Сервером Страниц, не YunoHost)."
+
+    default = "true"
+
+    [install.acme_email]
+    type = "email"
+
+    ask.en = "Set the e-mail sent to the Let's Encrypt server to receive, for example, certificate renewal reminders"
+    ask.ru = "Укажите адрес электронной почты для отправки на сервер Let's Encrypt, чтобы, например, получать напоминания об обновлении сертификатов"
+
+    example = "you@example.com"
+
+    [install.dns_use]
+    type = "boolean"
+    yes = "true"
+    no = "false"
+
+    ask.en = "Do use your registar's API?"
+    ask.ru = "Использовать API Вашего регистратора?"
+    help.en = "Otherwise, for each user using Pages Server will be generated a new certificate. This may lead to rate limits if you have open registration and/or big amount of user and organizations."
+    help.ru = "Иначе, для каждого пользователя, использующего Сервер Страниц, будет сгенерирован новый сертификат. Из-за этого можно превысить лимит, если у Вас открытая регистрация и/или большое количество пользователей и организаций."
+
+    default = "true"
+
+    [install.dns_provider]
+    visible = "acme_use = 'true'"
+    type = "string"
+
+    ask.en = "Code of your domain registrar for the main domain wildcard"
+    ask.ru = "Код Вашего доменного регистратора для сертификата на домены с подстановочным знаком"
+    help.en = "Empty value – do not use the API of the domain registrar. See https://go-acme.github.io/lego/dns/ for registrar codes."
+    help.ru = "Пустое значение - не использовать API регистратора доменов. Смотрите https://go-acme.github.io/lego/dns/ для кодов регистраторов."
+
+    example = "regru"
+
+    [install.dns_credentials]
+    visible = "dns_provider != ''"
+    type = "text"
+
+    ask.en = "Write environment variables with credentials of your account on domain registrar's service" 
+    ask.ru = "Напишите переменные среды с учётными данными Вашего аккаунта у доменного регистратора, выбранного выше"
+    help.en = "See https://go-acme.github.io/lego/dns/ for available environment variables."
+    help.ru = "Смотрите https://go-acme.github.io/lego/dns/ для доступных переменных среды."
+
+    example = "REGRU_USERNAME='test'\nREGRU_PASSWORD='test'"
 
     [install.init_main_permission]
     type = "group"
     default = "visitors"
 
 [resources]
+
+    [resources.sources]
+
+        [resources.sources.main]
+        amd64.url = "https://codeberg.org/Codeberg/pages-server/releases/download/v5.1/codeberg-pages-server"
+        in_subdir = false
+        extract = false
+        rename = "pages-server"
+
     [resources.system_user]
 
     [resources.install_dir]
 
     [resources.permissions]
-    main.url = "/"
+
+    [resources.apt]
+    # dummy dependency
+    packages = "nginx"
+
