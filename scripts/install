@@ -6,7 +6,6 @@
 # IMPORT GENERIC HELPERS
 #=================================================
 
-source _common.sh
 source /usr/share/yunohost/helpers
 
 #=================================================
@@ -37,7 +36,7 @@ yunohost service add $app --description="Forgejo Pages Server" --log="/var/log/$
 #=================================================
 ynh_script_progression --message="Adding configuration files..." --weight=1
 
-ynh_config_add --template="prod.env" --destination="$install_dir/.env"
+ynh_add_config --template="prod.env" --destination="$install_dir/.env"
 
 #=================================================
 # GENERIC FINALIZATION
