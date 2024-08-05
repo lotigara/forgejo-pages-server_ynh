@@ -29,7 +29,9 @@ ram.runtime = "50M"
 [install]
     [install.domain]
     # this is a generic question - ask strings are automatically handled by Yunohost's core
-    type = "domain"
+    type = "string"
+    ask.en = "Choose a domain for this application"
+    ask.ru = "Выберите домен для этого приложения"
 
     [install.domain_raw]
     type = "domain"
