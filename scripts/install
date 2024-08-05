@@ -37,25 +37,7 @@ yunohost service add $app --description="Forgejo Pages Server" --log="/var/log/$
 #=================================================
 ynh_script_progression --message="Adding configuration files..." --weight=1
 
-# Create an environment file
-cat >> .env << EOF
-# ACME Settings
-ACME_ACCEPT_TERMS=$acme_use
-ACME_EMAIL="$acme_email"
-
-# DNS Provider Settings
-DNS_PROVIDER="$dns_provider"
-NO_DNS_01="$dns_use"
-$dns_credentials
-
-# Forge Settings
-GITEA_API_TOKEN="$forgejo_token"
-GITEA_ROOT="$forgejo_url"
-
-# Domain Settings
-PAGES_DOMAIN="$domain"
-RAW_DOMAIN="$domain_raw"
-EOF
+ynh_config_add --template="prod.env" --destination="$install_dir/.env"
 
 #=================================================
 # GENERIC FINALIZATION
