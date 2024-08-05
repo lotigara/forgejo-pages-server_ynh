@@ -120,7 +120,7 @@ ram.runtime = "50M"
 
         [resources.sources.main]
         amd64.url = "https://codeberg.org/Codeberg/pages-server/releases/download/v5.1/codeberg-pages-server"
-        amd64.sha256sum = "4b0b5257c9d82c0d6c6009417dbee214cf6d0b8a56a77620e024473c62e04b86"
+        amd64.sha256 = "4b0b5257c9d82c0d6c6009417dbee214cf6d0b8a56a77620e024473c62e04b86"
         in_subdir = false
         extract = false
         rename = "pages-server"
