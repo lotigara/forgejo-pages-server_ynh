@@ -95,7 +95,7 @@ ram.runtime = "50M"
     default = "true"
 
     [install.dns_provider]
-    visible = "acme_use = 'true'"
+    visible = "dns_use = 'yes'"
     type = "string"
 
     ask.en = "Code of your domain registrar for the main domain wildcard"
@@ -106,7 +106,7 @@ ram.runtime = "50M"
     example = "regru"
 
     [install.dns_credentials]
-    visible = "dns_provider != ''"
+    visible = "dns_use = 'yes'"
     type = "text"
     redact = true
 
