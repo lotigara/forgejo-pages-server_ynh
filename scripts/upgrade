@@ -1,5 +1,9 @@
 #!/bin/bash
 
+#=================================================
+# GENERIC START
+#=================================================
+
 source /usr/share/yunohost/helpers
 
 #=================================================
@@ -7,13 +11,44 @@ source /usr/share/yunohost/helpers
 #=================================================
 ynh_script_progression --message="Setting up source files..." --weight=1
 
-echo "Hello world!" > $install_dir/index.html
-chown -R www-data: "$install_dir"
+# Download, check integrity, uncompress and patch the source from manifest.toml
+ynh_setup_source --dest_dir="$install_dir"
+
+chown -R $app:$app "$install_dir"
+chmod +x "$install_dir/pages-server"
 
 #=================================================
-# NGINX CONFIGURATION
+# SYSTEM CONFIGURATION
 #=================================================
-ynh_script_progression --message="Configuring nginx web server..." --weight=1
+ynh_script_progression --message="Adding systemd configuration for $app..." --weight=1
 
-# Create a dedicated nginx config
-ynh_add_nginx_config
+# Create a dedicated systemd config
+ynh_add_systemd_config
+
+#=================================================
+# APP INITIAL CONFIGURATION
+#=================================================
+# ADD A CONFIGURATION
+#=================================================
+ynh_script_progression --message="Adding configuration files..." --weight=1
+
+# Create an environment file
+cat >> .env << EOF
+# ACME Settings
+ACME_ACCEPT_TERMS=$acme_use
+ACME_EMAIL="$acme_email"
+
+# DNS Provider Settings
+DNS_PROVIDER="$dns_provider"
+NO_DNS_01="$dns_use"
+$dns_credentials
+
+# Forge Settings
+GITEA_API_TOKEN="$forgejo_token"
+GITEA_ROOT="$forgejo_url"
+
+# Domain Settings
+PAGES_DOMAIN="$domain"
+RAW_DOMAIN="$domain_raw"
+EOF
+
