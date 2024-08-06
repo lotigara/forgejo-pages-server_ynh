@@ -98,8 +98,8 @@ ram.runtime = "50M"
 
     ask.en = "Code of your domain registrar for the main domain wildcard"
     ask.ru = "Код Вашего доменного регистратора для сертификата на домены с подстановочным знаком"
-    help.en = "Empty value – do not use the API of the domain registrar. See https://go-acme.github.io/lego/dns/ for registrar codes. Please use a separate line for each variable!"
-    help.ru = "Пустое значение - не использовать API регистратора доменов. Смотрите https://go-acme.github.io/lego/dns/ для кодов регистраторов. Пожалуйста, используйте для каждой переменной отдельную строку!"
+    help.en = "Empty value – do not use the API of the domain registrar. See https://go-acme.github.io/lego/dns/ for registrar codes."
+    help.ru = "Пустое значение - не использовать API регистратора доменов. Смотрите https://go-acme.github.io/lego/dns/ для кодов регистраторов."
 
     example = "regru"
 
@@ -109,8 +109,8 @@ ram.runtime = "50M"
 
     ask.en = "Write environment variables with credentials of your account on domain registrar's service" 
     ask.ru = "Напишите переменные среды с учётными данными Вашего аккаунта у доменного регистратора, выбранного выше"
-    help.en = "See https://go-acme.github.io/lego/dns/ for available environment variables."
-    help.ru = "Смотрите https://go-acme.github.io/lego/dns/ для доступных переменных среды."
+    help.en = "See https://go-acme.github.io/lego/dns/ for available environment variables.\nPlease use a separate line for each variable!"
+    help.ru = "Смотрите https://go-acme.github.io/lego/dns/ для доступных переменных среды.\nПожалуйста, используйте для каждой переменной отдельную строку!"
 
     example = "REGRU_USERNAME='test'\nREGRU_PASSWORD='test'"
 
