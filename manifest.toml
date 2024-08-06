@@ -78,7 +78,7 @@ ram.runtime = "50M"
     ask.en = "Set the e-mail sent to the Let's Encrypt server to receive, for example, certificate renewal reminders"
     ask.ru = "Укажите адрес электронной почты для отправки на сервер Let's Encrypt, чтобы, например, получать напоминания об обновлении сертификатов"
 
-    example = "you\@example.com"
+    example = "you@example.com"
 
     [install.dns_use]
     type = "boolean"
